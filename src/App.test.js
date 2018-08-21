@@ -7,7 +7,3 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
-it('can fail', () => {
-  expect(1).toEql(2);
-})
