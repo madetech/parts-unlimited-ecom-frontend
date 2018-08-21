@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "antd": "^3.8.2",
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4"
@@ -11,10 +13,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run start-simulators & export SIMULATOR_PID=$!; react-scripts test --env=jsdom; export EXIT_CODE_TESTS=$?; kill $SIMULATOR_PID; exit $EXIT_CODE_TESTS",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "start-simulators": "node src/simulators/APISimulator/server.js"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.10",
