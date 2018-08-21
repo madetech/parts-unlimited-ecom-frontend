@@ -7,3 +7,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('doesnt deploy when failing', () => {
+  expect(1).toEqual(0);
+});
