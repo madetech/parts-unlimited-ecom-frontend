@@ -9,7 +9,7 @@ export default function CustomerForm(props){
       <Input/>
     </FormItem>
     <h3>Shipping Details</h3>
-        <FormItem label="Address line 1">
+    <FormItem label="Address line 1">
       <Input/>
     </FormItem>
     <FormItem label="Address line 2">

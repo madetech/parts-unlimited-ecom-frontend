@@ -25,4 +25,12 @@ describe('CustomerDetails', () => {
   it('contains a submit button', () => {
     expect(wrapper.find('[htmlType="submit"]').length).toEqual(1);
   })
+
+  it('has three steps', () => {
+    expect(wrapper.find("Step").length).toEqual(3);
+  })
+
+  it('renders a customer form second step', () => {
+    expect(wrapper.find("Step").at(1).text()).toEqual("Items")
+  })
 })
