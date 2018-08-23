@@ -26,6 +26,12 @@ describe('CustomerDetails', () => {
     expect(wrapper.find('[htmlType="submit"]').length).toEqual(1);
   })
 
+  it('set customer name barry', () => {
+    const customername = wrapper.find('Input').at(0)
+    customername.value = 'Barry';
+    expect(customername.value).toEqual("Barry");
+   })
+
   it('has three steps', () => {
     expect(wrapper.find("Step").length).toEqual(3);
   })
@@ -34,3 +40,4 @@ describe('CustomerDetails', () => {
     expect(wrapper.find("Step").at(1).text()).toEqual("Items")
   })
 })
+
