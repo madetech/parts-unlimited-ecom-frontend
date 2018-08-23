@@ -1,9 +1,9 @@
 import React from 'react';
 import {mount} from 'enzyme';
-import CustomerForm from '../CustomerForm';
+import CustomerDetails from '../CustomerDetails';
 
 const wrapper = mount(
-  <CustomerForm/>
+  <CustomerDetails/>
 );
 
 it('render a customer form Shipping Details heading ', () => {
