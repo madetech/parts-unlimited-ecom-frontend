@@ -25,4 +25,11 @@ describe('CustomerDetails', () => {
   it('contains a submit button', () => {
     expect(wrapper.find('[htmlType="submit"]').length).toEqual(1);
   })
+
+  it('set customer name barry', () => {
+    const customername = wrapper.find('Input').at(0)
+    customername.value = 'Barry';
+    expect(customername.value).toEqual("Barry");
+   })
 })
+
