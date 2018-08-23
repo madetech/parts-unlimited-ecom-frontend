@@ -17,4 +17,8 @@ describe('CustomerDetails', () => {
   it('render a customer form fourth label ', () => {
     expect(wrapper.find("FormItem").at(3).text()).toEqual("City");
   });
+
+  it('has two postcodes for shipping + billing', () => {
+    expect(wrapper.find('[label="Postcode"]').length).toEqual(2)
+  })
 })
