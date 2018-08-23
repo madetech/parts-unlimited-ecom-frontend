@@ -21,7 +21,7 @@ export default function CustomerForm(props){
     <FormItem label="County">
       <Input/>
     </FormItem>
-    <FormItem label="Post Code">
+    <FormItem label="Postcode">
       <Input/>
     </FormItem>
     <FormItem label="Phone Number">
@@ -43,7 +43,7 @@ export default function CustomerForm(props){
     <FormItem label="County">
       <Input/>
     </FormItem>
-    <FormItem label="Post Code">
+    <FormItem label="Postcode">
       <Input/>
     </FormItem>
     <FormItem label="Phone Number">
