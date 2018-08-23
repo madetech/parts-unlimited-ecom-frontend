@@ -19,6 +19,10 @@ describe('CustomerDetails', () => {
   });
 
   it('has two postcodes for shipping + billing', () => {
-    expect(wrapper.find('[label="Postcode"]').length).toEqual(2)
+    expect(wrapper.find('[label="Postcode"]').length).toEqual(2);
+  })
+
+  it('contains a submit button', () => {
+    expect(wrapper.find('[htmlType="submit"]').length).toEqual(1);
   })
 })
