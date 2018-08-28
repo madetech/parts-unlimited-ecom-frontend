@@ -14,10 +14,10 @@ describe('CustomerForm', () => {
   describe('OnSubmit event', () => {
     it('renders a customer form', async () => {
       // use jest/enzyme to fill out our component
-      const input = wrapper.find('#customerName').at(0)
-      const button = wrapper.find('Button')
-      input.value = 'Barry Barlow';
-      console.log(input.value)
+      const input = wrapper.find('input#customerName')
+      const button = wrapper.find('button')
+
+      input.simulate('change', { target: { value: 'Barraaaay Barlow' } })
       button.simulate('submit');
 
       const result = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
@@ -25,7 +25,7 @@ describe('CustomerForm', () => {
       const custData = {
         customerName: "Barry Barlow"
       }
-      return expect(result).toEqual(JSON.stringify(custData))
+      return await expect(result).toEqual(JSON.stringify(custData))
     });
   })
 })
