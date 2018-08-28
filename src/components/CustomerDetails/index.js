@@ -1,17 +1,25 @@
-import { Steps, Layout } from 'antd';
+import { Steps, Row, Col } from 'antd';
 import React from 'react';
 import CustomerForm from '../CustomerForm';
-import {css} from 'emotion';
+import { css } from 'emotion';
 
 const Step = Steps.Step;
 
 export default function CustomerDetails(props){
   return <div>
-          <Steps progressDot current={0} className={css`margin-top:20px;`}>
-            <Step title="Details" />
-            <Step title="Items" />
-            <Step title="Confirmation" />
-          </Steps>
-          <CustomerForm/>
+          <Row>
+            <Col span={24}>
+              <Steps progressDot current={0} className={css`margin-top:20px;`}>
+                <Step title="Details" />
+                <Step title="Items" />
+                <Step title="Confirmation" />
+              </Steps>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12} offset={6}>
+              <CustomerForm/>
+            </Col>
+          </Row>
         </div>
 }
