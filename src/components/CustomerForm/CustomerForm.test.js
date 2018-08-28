@@ -10,9 +10,10 @@ describe('CustomerForm', () => {
         <CustomerForm/>
       );
   });
-
-  afterEach(async () => {
-    await fsPromises.writeFile('/tmp/customer-details.json', '', (err) => {
+  
+  afterEach(() => {
+    const fs = require('fs') 
+    fs.writeFileSync('/tmp/customer-details.json', '', (err) => {
       if (err) throw err;
       console.log("Run")
     })
@@ -29,7 +30,7 @@ describe('CustomerForm', () => {
       shipping_city_input.simulate('change', { target: { value: 'London' } })
       billing_postcode_input.simulate('change', { target: { value: 'N1 0UT' } })
 
-      button.simulate('submit');
+      await button.simulate('submit');
 
       const result = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
 

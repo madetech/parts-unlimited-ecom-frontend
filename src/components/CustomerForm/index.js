@@ -10,6 +10,7 @@ function CustomerForm(props) {
     e.preventDefault()
     const useCase = new SaveCustomerDetails();
     await useCase.execute(props.form.getFieldsValue())
+    return ;
   }
 
   const { getFieldDecorator } = props.form

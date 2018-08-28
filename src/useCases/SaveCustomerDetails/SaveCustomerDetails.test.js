@@ -2,6 +2,14 @@ import SaveCustomerDetails from '.';
 import { promises as fsPromises } from 'fs';
 
 describe('SaveCustomerDetails', () => {
+  afterEach(() => {
+    const fs = require('fs') 
+    fs.writeFileSync('/tmp/customer-details.json', '', (err) => {
+      if (err) throw err;
+      console.log("Run")
+    })
+  })
+
   it('can read a response', async () => {
     var response = JSON.stringify({successful: false, errors: []})
     await fsPromises.writeFile('/tmp/responseFromCustomerDetails.json', response);
