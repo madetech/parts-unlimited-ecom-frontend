@@ -4,13 +4,13 @@ import { Form, Input, Button, Col, Row } from 'antd';
 const FormItem = Form.Item;
 
 function CustomerForm(props) {
-  
+
   const onSubmit = (e) => {
     e.preventDefault()
     // props.form.getFieldsValue()
     console.log(props.form.getFieldsValue())
   }
-  
+
   const { getFieldDecorator } = props.form
 
   return <Form onSubmit={onSubmit}>
@@ -19,47 +19,47 @@ function CustomerForm(props) {
     </FormItem>
     <h3>Shipping Details</h3>
     <FormItem label="Address line 1">
-      <Input/>
+      {getFieldDecorator("shippingAddress1", {})(<Input/>)}
     </FormItem>
     <FormItem label="Address line 2">
-      <Input/>
+      {getFieldDecorator("shippingAddress2", {})(<Input/>)}
     </FormItem>
     <FormItem label="City">
-      <Input/>
+      {getFieldDecorator("shippingCity", {})(<Input/>)}
     </FormItem>
     <FormItem label="County">
-      <Input/>
+      {getFieldDecorator("shippingCounty", {})(<Input/>)}
     </FormItem>
     <FormItem label="Postcode">
-      <Input/>
+      {getFieldDecorator("shippingPostcode", {})(<Input/>)}
     </FormItem>
     <FormItem label="Phone Number">
-      <Input/>
+      {getFieldDecorator("shippingPhone", {})(<Input/>)}
     </FormItem>
     <FormItem label="Email">
-      <Input type="email"/>
+      {getFieldDecorator("shippingEmail", {})(<Input type="email" />)}
     </FormItem>
     <h3>Billing Details</h3>
-     <FormItem label="Address line 1">
-      <Input/>
+    <FormItem label="Address line 1">
+      {getFieldDecorator("billingAddress1", {})(<Input/>)}
     </FormItem>
     <FormItem label="Address line 2">
-      <Input/>
+      {getFieldDecorator("billingAddress2", {})(<Input/>)}
     </FormItem>
     <FormItem label="City">
-      <Input/>
+      {getFieldDecorator("billingCity", {})(<Input/>)}
     </FormItem>
     <FormItem label="County">
-      <Input/>
+      {getFieldDecorator("billingCounty", {})(<Input/>)}
     </FormItem>
     <FormItem label="Postcode">
-      <Input/>
+      {getFieldDecorator("billingPostcode", {})(<Input/>)}
     </FormItem>
     <FormItem label="Phone Number">
-      <Input/>
+      {getFieldDecorator("billingPhone", {})(<Input/>)}
     </FormItem>
     <FormItem label="Email">
-      <Input type="email"/>
+      {getFieldDecorator("billingEmail", {})(<Input type="email" />)}
     </FormItem>
     <Row>
       <Col span={24} style={{textAlign: 'right'}}>
