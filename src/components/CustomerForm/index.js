@@ -1,56 +1,67 @@
 import React from 'react';
 import { Form, Input, Button, Col, Row } from 'antd';
+import SaveCustomerDetails from '../../useCases/SaveCustomerDetails';
 
 const FormItem = Form.Item;
 
-export default function CustomerForm(props){
-  return <Form>
+function CustomerForm(props) {
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    const useCase = new SaveCustomerDetails();
+    await useCase.execute(props.form.getFieldsValue())
+    return ;
+  }
+
+  const { getFieldDecorator } = props.form
+
+  return <Form onSubmit={onSubmit}>
     <FormItem label="Customer Name">
-      <Input/>
+      {getFieldDecorator("customerName", {})(<Input/>)}
     </FormItem>
     <h3>Shipping Details</h3>
-        <FormItem label="Address line 1">
-      <Input/>
+    <FormItem label="Address line 1">
+      {getFieldDecorator("shippingAddress1", {})(<Input/>)}
     </FormItem>
     <FormItem label="Address line 2">
-      <Input/>
+      {getFieldDecorator("shippingAddress2", {})(<Input/>)}
     </FormItem>
     <FormItem label="City">
-      <Input/>
+      {getFieldDecorator("shippingCity", {})(<Input/>)}
     </FormItem>
     <FormItem label="County">
-      <Input/>
+      {getFieldDecorator("shippingCounty", {})(<Input/>)}
     </FormItem>
-    <FormItem label="Post Code">
-      <Input/>
+    <FormItem label="Postcode">
+      {getFieldDecorator("shippingPostcode", {})(<Input/>)}
     </FormItem>
     <FormItem label="Phone Number">
-      <Input/>
+      {getFieldDecorator("shippingPhone", {})(<Input/>)}
     </FormItem>
     <FormItem label="Email">
-      <Input type="email"/>
+      {getFieldDecorator("shippingEmail", {})(<Input type="email" />)}
     </FormItem>
     <h3>Billing Details</h3>
-     <FormItem label="Address line 1">
-      <Input/>
+    <FormItem label="Address line 1">
+      {getFieldDecorator("billingAddress1", {})(<Input/>)}
     </FormItem>
     <FormItem label="Address line 2">
-      <Input/>
+      {getFieldDecorator("billingAddress2", {})(<Input/>)}
     </FormItem>
     <FormItem label="City">
-      <Input/>
+      {getFieldDecorator("billingCity", {})(<Input/>)}
     </FormItem>
     <FormItem label="County">
-      <Input/>
+      {getFieldDecorator("billingCounty", {})(<Input/>)}
     </FormItem>
-    <FormItem label="Post Code">
-      <Input/>
+    <FormItem label="Postcode">
+      {getFieldDecorator("billingPostcode", {})(<Input/>)}
     </FormItem>
     <FormItem label="Phone Number">
-      <Input/>
+      {getFieldDecorator("billingPhone", {})(<Input/>)}
     </FormItem>
     <FormItem label="Email">
-      <Input type="email"/>
+      {getFieldDecorator("billingEmail", {})(<Input type="email" />)}
     </FormItem>
     <Row>
       <Col span={24} style={{textAlign: 'right'}}>
@@ -61,3 +72,4 @@ export default function CustomerForm(props){
     </Row>
     </Form>
 }
+export default Form.create()(CustomerForm)
