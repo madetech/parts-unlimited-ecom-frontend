@@ -2,11 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import CustomerDetails from '../components/CustomerDetails';
 import Theme from '../components/Theme';
-import PageLayout from '../components/PageLayout';
-
+import CustomerForm from '../components/CustomerForm';
 
 storiesOf('Customer Details', module)
-  .add('to Storybook', () => <Theme> <CustomerDetails /></Theme>);
+  .add('default', () => <Theme> <CustomerDetails /></Theme>);
 
-storiesOf('Page Layout', module)
-  .add('to Storybook', () => <Theme> <PageLayout /></Theme>);
+storiesOf('Customer Form', module)
+  .add('default', () => <Theme> <CustomerForm /></Theme>);
