@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Col, Row } from 'antd';
+import SaveCustomerDetails from '../../useCases/SaveCustomerDetails';
 
 const FormItem = Form.Item;
 
@@ -7,7 +8,8 @@ function CustomerForm(props) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    // props.form.getFieldsValue()
+    const useCase = new SaveCustomerDetails();
+    useCase.execute(props.form.getFieldsValue())
     console.log(props.form.getFieldsValue())
   }
 

@@ -12,7 +12,7 @@ describe('SaveCustomerDetails', () => {
     return expect(result).toEqual({successful: false, errors: []});
   });
 
-  it('can call remote server with the data', async () => {
+  xit('can call remote server with the data', async () => {
       var custData = {
         customerName: "Barry",
         shippingAddressLine1: "136 Southwark Street",
