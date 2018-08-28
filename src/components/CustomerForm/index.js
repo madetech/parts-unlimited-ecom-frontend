@@ -10,10 +10,12 @@ function CustomerForm(props) {
     // props.form.getFieldsValue()
     console.log(props.form.getFieldsValue())
   }
+  
+  const { getFieldDecorator } = props.form
 
   return <Form onSubmit={onSubmit}>
     <FormItem label="Customer Name">
-      <Input/>
+      {getFieldDecorator("customerName", {})(<Input/>)}
     </FormItem>
     <h3>Shipping Details</h3>
     <FormItem label="Address line 1">
