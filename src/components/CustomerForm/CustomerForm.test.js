@@ -11,6 +11,13 @@ describe('CustomerForm', () => {
       );
   });
 
+  afterEach(async () => {
+    await fsPromises.writeFile('/tmp/customer-details.json', '', (err) => {
+      if (err) throw err;
+      console.log("Run")
+    })
+  })
+
   describe('OnSubmit event', () => {
     it('renders a customer form', async () => {
       const customer_name_input = wrapper.find('input#customerName')
