@@ -6,6 +6,7 @@ const FormItem = Form.Item;
 function CustomerForm(props) {
   
   const onSubmit = (e) => {
+    e.preventDefault()
     // props.form.getFieldsValue()
     console.log(props.form.getFieldsValue())
   }
