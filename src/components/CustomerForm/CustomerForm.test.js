@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import CustomerForm from '../CustomerForm';
 import { promises as fsPromises } from 'fs';
 
 describe('CustomerForm', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(
+    wrapper = mount(
         <CustomerForm/>
       );
   });
@@ -14,7 +14,7 @@ describe('CustomerForm', () => {
   describe('OnSubmit event', () => {
     it('renders a customer form', async () => {
       // use jest/enzyme to fill out our component
-      const input = wrapper.find('[label="Customer Name"]')
+      const input = wrapper.find('#customerName')
       console.log(input)
       input.value = 'Barry Barlow';
       wrapper.simulate('submit');
