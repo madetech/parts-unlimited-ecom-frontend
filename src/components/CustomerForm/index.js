@@ -9,8 +9,8 @@ function CustomerForm(props) {
   const onSubmit = async (e) => {
     e.preventDefault()
     const useCase = new SaveCustomerDetails();
-    await useCase.execute(props.form.getFieldsValue())
     console.log(props.form.getFieldsValue())
+    await useCase.execute(props.form.getFieldsValue())
   }
 
   const { getFieldDecorator } = props.form

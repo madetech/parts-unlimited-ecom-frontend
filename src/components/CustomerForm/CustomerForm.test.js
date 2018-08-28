@@ -14,10 +14,11 @@ describe('CustomerForm', () => {
   describe('OnSubmit event', () => {
     it('renders a customer form', async () => {
       // use jest/enzyme to fill out our component
-      const input = wrapper.find('#customerName')
-      console.log(input)
+      const input = wrapper.find('#customerName').at(0)
+      const button = wrapper.find('Button')
       input.value = 'Barry Barlow';
-      wrapper.simulate('submit');
+      console.log(input.value)
+      button.simulate('submit');
 
       const result = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
 
