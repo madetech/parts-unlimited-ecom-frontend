@@ -7,7 +7,6 @@ const {Content, Header} = Layout;
 
 export default function CustomerDetails(props){
   return <Layout>
-    <Header/>
     <Content>
       <Steps progressDot current={0}>
         <Step title="Details" />
