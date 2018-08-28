@@ -15,7 +15,7 @@ describe('CustomerForm', () => {
     it('renders a customer form', async () => {
       // use jest/enzyme to fill out our component
       const input = wrapper.find('[label="Customer Name"]')
-
+      console.log(input)
       input.value = 'Barry Barlow';
       wrapper.simulate('submit');
 
