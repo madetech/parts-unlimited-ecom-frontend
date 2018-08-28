@@ -4,7 +4,13 @@ import { Form, Input, Button, Col, Row } from 'antd';
 const FormItem = Form.Item;
 
 function CustomerForm(props) {
-  return <Form>
+  
+  const onSubmit = (e) => {
+    // props.form.getFieldsValue()
+    console.log(props.form.getFieldsValue())
+  }
+
+  return <Form onSubmit={onSubmit}>
     <FormItem label="Customer Name">
       <Input/>
     </FormItem>
