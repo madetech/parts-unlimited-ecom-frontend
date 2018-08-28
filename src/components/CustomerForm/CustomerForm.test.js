@@ -12,7 +12,10 @@ describe('CustomerForm', () => {
 
   describe('OnSubmit event', () => {
     it('renders a customer form', () => {
-      // expect(wrapper.find("h3").at(0).text()).toEqual("Shipping Details");
+      // use jest/enzyme to fill out our component
+      // run wrapper.simulate('submit');
+      var result = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
+
     });
   })
 })
