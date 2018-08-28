@@ -1,6 +1,7 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import CustomerForm from '../CustomerForm';
+import { promises as fsPromises } from 'fs';
 
 describe('CustomerForm', () => {
   let wrapper;
@@ -11,15 +12,17 @@ describe('CustomerForm', () => {
   });
 
   describe('OnSubmit event', () => {
-    it('renders a customer form', () => {
+    it('renders a customer form', async () => {
       // use jest/enzyme to fill out our component
-      const input = (wrapper.find("Input").text())
+      const input = wrapper.find('[label="Customer Name"]')
 
-      input.value = 'Blah blah';
-      // run wrapper.simulate('submit');
+      input.value = 'Barry Barlow';
+      wrapper.simulate('submit');
+
       const result = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
+
       const custData = {
-        // whatever we put in the form
+        customerName: "Barry Barlow"
       }
       return expect(result).toEqual(JSON.stringify(custData))
     });
