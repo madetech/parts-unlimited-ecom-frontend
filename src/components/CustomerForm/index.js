@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Input, Button, Col, Row } from 'antd';
 
 const FormItem = Form.Item;
-const WrappedHorizontalLoginForm = Form.create()(HorizontalLoginForm);
 
 function CustomerForm(props) {
   return <Form>
