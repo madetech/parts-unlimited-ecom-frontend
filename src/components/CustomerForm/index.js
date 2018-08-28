@@ -2,8 +2,9 @@ import React from 'react';
 import { Form, Input, Button, Col, Row } from 'antd';
 
 const FormItem = Form.Item;
+const WrappedHorizontalLoginForm = Form.create()(HorizontalLoginForm);
 
-export default function CustomerForm(props){
+function CustomerForm(props) {
   return <Form>
     <FormItem label="Customer Name">
       <Input/>
@@ -61,3 +62,4 @@ export default function CustomerForm(props){
     </Row>
     </Form>
 }
+export default Form.create()(CustomerForm)
