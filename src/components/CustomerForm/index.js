@@ -9,7 +9,6 @@ function CustomerForm(props) {
   const onSubmit = async (e) => {
     e.preventDefault()
     const useCase = new SaveCustomerDetails();
-    console.log(props.form.getFieldsValue())
     await useCase.execute(props.form.getFieldsValue())
   }
 
