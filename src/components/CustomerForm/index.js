@@ -1,19 +1,19 @@
 import React from 'react';
 import { Form, Input, Button, Col, Row } from 'antd';
-import SaveCustomerDetails from '../../useCases/SaveCustomerDetails';
 
 const FormItem = Form.Item;
 
-export async function onSubmit(e, data) {
-  e.preventDefault()
-  const useCase = new SaveCustomerDetails();
-  await useCase.execute(data)
+export function onSubmit(saveCustomerDetails) {
+  return async function(e, data) {
+    e.preventDefault()
+    await saveCustomerDetails.execute(data)
+  }
 }
 
 function CustomerForm(props) {
   const { getFieldDecorator } = props.form
 
-  return <Form onSubmit={(e) => onSubmit(e, props.form.getFieldsValue())}>
+  return <Form onSubmit={(e) => onSubmit(props.saveCustomerDetails)(e, props.form.getFieldsValue())}>
     <FormItem label="Customer Name">
       {getFieldDecorator("customerName", {})(<Input/>)}
     </FormItem>
@@ -22,6 +22,7 @@ function CustomerForm(props) {
       {getFieldDecorator("shippingAddress1", {})(<Input/>)}
     </FormItem>
     <FormItem label="Address line 2">
+
       {getFieldDecorator("shippingAddress2", {})(<Input/>)}
     </FormItem>
     <FormItem label="City">

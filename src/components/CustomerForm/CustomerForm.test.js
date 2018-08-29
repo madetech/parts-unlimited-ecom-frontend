@@ -1,5 +1,6 @@
 import { promises as fsPromises } from 'fs';
 import { onSubmit } from '../CustomerForm'
+import SaveCustomerDetails from '../../useCases/SaveCustomerDetails';
 
 describe('CustomerForm', () => {
   describe('onSubmit handler', () => {
@@ -11,7 +12,7 @@ describe('CustomerForm', () => {
     }
 
     it('writes data to customer details file', async () => {
-      await onSubmit(eventStub, customData);
+      await onSubmit(new SaveCustomerDetails())(eventStub, customData);
       const customer_details = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
       return expect(customer_details).toEqual(JSON.stringify(customData))
     })
