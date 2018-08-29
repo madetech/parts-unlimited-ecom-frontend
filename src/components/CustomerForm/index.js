@@ -5,6 +5,7 @@ const FormItem = Form.Item;
 
 export function onSubmit(saveCustomerDetails) {
   return async function(e, data) {
+    console.log(data)
     e.preventDefault()
     await saveCustomerDetails.execute(data)
   }
@@ -15,7 +16,7 @@ function CustomerForm(props) {
 
   return <Form onSubmit={(e) => onSubmit(props.saveCustomerDetails)(e, props.form.getFieldsValue())}>
     <FormItem label="Customer Name">
-      {getFieldDecorator("customerName", {})(<Input/>)}
+      {getFieldDecorator("customerName", {})(<Input data-test="customer-name"/>)}
     </FormItem>
     <h3>Shipping Details</h3>
     <FormItem label="Address line 1">

@@ -18,7 +18,7 @@ export default function CustomerDetails(props){
           </Row>
           <Row>
             <Col span={12} offset={6}>
-              <CustomerForm/>
+              <CustomerForm saveCustomerDetails={props.saveCustomerDetails}/>
             </Col>
           </Row>
         </div>
