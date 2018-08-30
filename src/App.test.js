@@ -11,7 +11,7 @@ describe('<MyComponent /', () => {
       customerName: "Harry Harlow",
     }
     wrapper.find('input[data-test="customer-name"]').simulate('change', {target: {value: 'Harry Harlow'}})
-    wrapper.find('button').simulate('submit')
+    await wrapper.find('button').simulate('submit')
     let fileNames = await fsPromises.readdir('/tmp/parts')
     let contents = []
     await Promise.all(fileNames.map(async (fileName) => {
