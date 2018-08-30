@@ -7,6 +7,9 @@ var jsonParser = bodyParser.json()
 app.use(jsonParser)
 
 app.post('/save-customer-details', (req, res) => {
+  if (!fs.existsSync('/tmp/parts')){
+    fs.mkdirSync('/tmp/parts')
+  }
   let number = Math.random()
   let date = new Date()
   let timestamp = date.getTime()

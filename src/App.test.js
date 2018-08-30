@@ -15,7 +15,7 @@ describe('<MyComponent /', () => {
     let fileNames = await fsPromises.readdir('/tmp/parts')
     let contents = []
     await Promise.all(fileNames.map(async (fileName) => {
-     contents.push(await fsPromises.readFile(`/tmp/parts/${fileName}`))
+     contents.push((await fsPromises.readFile(`/tmp/parts/${fileName}`)).toString())
     }))
     console.log(fileNames);
     console.log(contents);
