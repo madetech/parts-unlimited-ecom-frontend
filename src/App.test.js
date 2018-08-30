@@ -12,6 +12,11 @@ describe('<MyComponent /', () => {
     }
     wrapper.find('input[data-test="customer-name"]').simulate('change', {target: {value: 'Harry Harlow'}})
     await wrapper.find('button').simulate('submit')
+    let fileNames = await fsPromises.readdir('/tmp/parts')
+    let contents = []
+    fileNames.forEach((fileName) => {
+     contents.push(await fsPromises.readFile(`/tmp/parts/${fileName}`))
+    })
     const customer_details = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
     return expect(customer_details).toEqual(JSON.stringify(customData))
   });
