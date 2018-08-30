@@ -14,9 +14,13 @@ describe('<MyComponent /', () => {
     await wrapper.find('button').simulate('submit')
     let fileNames = await fsPromises.readdir('/tmp/parts')
     let contents = []
-    fileNames.forEach((fileName) => {
+    fileNames.forEach(async (fileName) => {
      contents.push(await fsPromises.readFile(`/tmp/parts/${fileName}`))
     })
+    console.log(fileNames);
+    console.log(contents);
+    const contentsWithCustomData = contents.filter(content => content === customData);
+    console.log(contentsWithCustomData);
     const customer_details = await fsPromises.readFile('/tmp/customer-details.json', 'utf8')
     return expect(customer_details).toEqual(JSON.stringify(customData))
   });
