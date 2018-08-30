@@ -6,9 +6,9 @@ import rimraf from 'rimraf'
 configure({ adapter: new Adapter() });
 let alreadyRun = false;
 
-// global.afterAll(()=> {
-//   if (alreadyRun) return
-//   alreadyRun = true
-//   rimraf.sync('/tmp/parts')
-//   fs.mkdirSync('/tmp/parts')
-// })
+global.beforeEach(()=> {
+  if (alreadyRun) return
+  alreadyRun = true
+  rimraf.sync('/tmp/parts')
+  fs.mkdirSync('/tmp/parts')
+})

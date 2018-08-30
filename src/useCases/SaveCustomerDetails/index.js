@@ -10,6 +10,7 @@ export default class SaveCustomerDetails{
         headers: {'Content-Type': 'application/json'}
       });
     const json = await res.json();
+    console.log("json", json)
     return json;
   }
 }

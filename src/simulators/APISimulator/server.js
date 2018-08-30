@@ -11,6 +11,7 @@ app.post('/save-customer-details', (req, res) => {
   let date = new Date()
   let timestamp = date.getTime()
   fs.writeFile(`/tmp/parts/${timestamp}-${number}.json`, JSON.stringify(req.body), function (err) {
+    console.log("hello barry")
     if(err) throw err;
     fs.readFile('/tmp/responseFromCustomerDetails.json', 'utf8', function (err, data) {
       if(err) throw err;

@@ -7,8 +7,6 @@ import rimraf from 'rimraf'
 import fs from 'fs';
 
 describe('<MyComponent /', () => {
-  rimraf.sync('/tmp/parts')
-  fs.mkdirSync('/tmp/parts')
   it('renders three <Foo /> components', async () => {
     var response = JSON.stringify({successful: false, errors: []})
     await fsPromises.writeFile('/tmp/responseFromCustomerDetails.json', response);
