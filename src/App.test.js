@@ -19,14 +19,9 @@ describe('<MyComponent /', () => {
     await Promise.all(fileNames.map(async (fileName) => {
      contents.push((await fsPromises.readFile(`/tmp/parts/${fileName}`)).toString())
     }))
-    console.log(fileNames);
-    console.log(contents);
-    console.log(customData)
     const contentsWithCustomData = contents.filter(content => {
-      console.log(JSON.parse(content))
       return _.isEqual(customData, JSON.parse(content))
     });
-    console.log(contentsWithCustomData);
 
     return expect(contentsWithCustomData.length).toEqual(1)
   });
