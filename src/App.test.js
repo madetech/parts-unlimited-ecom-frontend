@@ -2,6 +2,7 @@ import React from 'react';
 import App from './App';
 import { mount } from 'enzyme';
 import { promises as fsPromises } from 'fs';
+import _ from 'lodash';
 
 describe('<MyComponent /', () => {
   it('renders three <Foo /> components', async () => {
@@ -21,8 +22,7 @@ describe('<MyComponent /', () => {
     console.log(customData)
     const contentsWithCustomData = contents.filter(content => {
       console.log(JSON.parse(content))
-      console.log(JSON.parse(content) == customData)
-      return JSON.parse(content).deepEqual(customData)
+      return _.isEqual(customData, JSON.parse(content))
     });
     console.log(contentsWithCustomData);
 
