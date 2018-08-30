@@ -6,6 +6,8 @@ import _ from 'lodash';
 
 describe('<MyComponent /', () => {
   it('renders three <Foo /> components', async () => {
+    var response = JSON.stringify({successful: false, errors: []})
+    await fsPromises.writeFile('/tmp/responseFromCustomerDetails.json', response);
     const wrapper = mount(<App/>);
     const customData = {
       customerName: "Harry Harlow",
