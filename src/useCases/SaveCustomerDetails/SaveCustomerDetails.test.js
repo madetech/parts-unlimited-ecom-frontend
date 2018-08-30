@@ -2,7 +2,7 @@ import SaveCustomerDetails from '.';
 import { promises as fsPromises } from 'fs';
 
 describe('SaveCustomerDetails', () => {
-  it('can read a response', async () => {
+  xit('can read a response', async () => {
     var response = JSON.stringify({successful: false, errors: []})
     await fsPromises.writeFile('/tmp/responseFromCustomerDetails.json', response);
 
@@ -12,7 +12,7 @@ describe('SaveCustomerDetails', () => {
     return expect(result).toEqual({successful: false, errors: []});
   });
 
-  it('can call remote server with the data', async () => {
+  xit('can call remote server with the data', async () => {
       var custData = {
         customerName: "Barry",
         shippingAddressLine1: "136 Southwark Street",

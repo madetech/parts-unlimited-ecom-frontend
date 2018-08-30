@@ -14,9 +14,9 @@ describe('<MyComponent /', () => {
     await wrapper.find('button').simulate('submit')
     let fileNames = await fsPromises.readdir('/tmp/parts')
     let contents = []
-    fileNames.forEach(async (fileName) => {
+    await Promise.all(fileNames.map(async (fileName) => {
      contents.push(await fsPromises.readFile(`/tmp/parts/${fileName}`))
-    })
+    }))
     console.log(fileNames);
     console.log(contents);
     const contentsWithCustomData = contents.filter(content => content === customData);
